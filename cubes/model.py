@@ -382,6 +382,11 @@ class Cube(ModelObject):
     def measures(self):
         return list(self._measures.values())
 
+    @measures.setter
+    def measures(self, measures):
+        for measure in measures:
+            self._measures[measure.name] = measure
+
     def measure(self, name):
         """Get measure object. If `obj` is a string, then measure with given
         name is returned, otherwise measure object is returned if it belongs
@@ -413,6 +418,11 @@ class Cube(ModelObject):
     @property
     def aggregates(self):
         return list(self._aggregates.values())
+
+    @aggregates.setter
+    def aggregates(self, aggregates):
+        for aggregate in aggregates:
+            self._aggregates[aggregate.name] = aggregate
 
     def aggregate(self, name):
         """Get aggregate object. If `obj` is a string, then aggregate with
@@ -656,6 +666,11 @@ class Cube(ModelObject):
     @property
     def dimensions(self):
         return list(self._dimensions.values())
+
+    @dimensions.setter
+    def dimensions(self, dimensions):
+        for dimension in dimensions:
+            self._dimensions[dimension.name] = dimension
 
     def dimension(self, obj):
         """Get dimension object. If `obj` is a string, then dimension with
